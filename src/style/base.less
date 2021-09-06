@@ -1,0 +1,220 @@
+* {
+	box-sizing: border-box;
+
+	-webkit-appearance: none;
+	font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif, ',Roboto', 'Tahoma' !important;
+}
+.el-date-editor input,
+.el-cascader input,
+.emp,
+.move-emp {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+html,
+body,
+#app {
+	height: 100%;
+	background-color: #f5f5f5;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 14px;
+	vertical-align: baseline;
+	-webkit-tap-highlight-color: transparent;
+
+	-webkit-overflow-scrolling: touch;
+}
+img {
+	vertical-align: middle;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1.4;
+	color: #333;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+// @scrollWidth: 6px;
+// ::-webkit-scrollbar {
+// 	/* 1 */
+// 	/*滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等*/
+// 	background-color: rgba(255, 255, 255, 0.5);
+// 	width: @scrollWidth; //纵向滚动条
+// 	height: @scrollWidth; //横向滚动条
+// 	border-radius: @scrollWidth;
+// }
+
+::-webkit-scrollbar-button {
+	/* 2 */
+	/*滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。*/
+	display: none;
+}
+
+// ::-webkit-scrollbar-track {
+// 	/* 3 */
+// 	/*外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。*/
+// 	//background-color: rgba(0, 0, 0, 0.5);
+// 	background-color: rgba(239, 239, 239, 1);
+// 	border-radius: @scrollWidth;
+// }
+
+// ::-webkit-scrollbar-track-piece {
+// 	/* 4 */
+// 	/*内层轨道，滚动条中间部分（除去）。*/
+// 	background-color: rgba(255, 255, 255, 0.8);
+// 	border-radius: @scrollWidth;
+// }
+
+// ::-webkit-scrollbar-thumb {
+// 	/* 5 */
+// 	/*滚动条里面可以拖动的那部分*/
+// 	background-color: #999;
+// 	//background-color: rgba(239, 239, 239, 1);
+// 	border-radius: @scrollWidth;
+// }
+::-webkit-input-placeholder {
+	color: gray;
+}
+
+.form-item-title {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.amap-sug-result {
+	z-index: 3000;
+}
