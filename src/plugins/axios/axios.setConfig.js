@@ -23,7 +23,7 @@ export default (axios, config = {}) => {
 			get: {
 				'get-custom-key': 'custom value: only for get method',
 			},
-			token: getToken(),
+			authorization: getToken(),
 			device_id: constant.deviceId,
 			product: constant.product,
 		},

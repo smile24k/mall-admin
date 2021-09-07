@@ -60,14 +60,14 @@ export default {
 			const [err, data = {}] = await to(api.login(formData));
 
 			if (err) return (loading.value = false);
-			if (data.status !== 200) {
+			if (!data.success) {
 				reqFail.call(proxy, data);
 				loading.value = false;
 				return;
 			}
-			if (data.data) {
-				localStorage.setItem('token', data.data.token);
-				localStorage.setItem('loginRes', JSON.stringify(data.data));
+			if (data.result) {
+				localStorage.setItem('token', data.result.token);
+				localStorage.setItem('loginRes', JSON.stringify(data.result));
 				proxy.$message.success('登录成功');
 				setTimeout(() => {
 					location.href = '/';

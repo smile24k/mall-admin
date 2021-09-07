@@ -1,7 +1,7 @@
 const apiMap = {
-	login: { method: 'post', url: '/back/login' },
+	login: { method: 'post', url: '/api/login' },
 	logout: { method: 'post', url: '/logout' },
-	getMenu: { method: 'get', url: '/back/menu/tree' },
+	getMenu: { method: 'get', url: '/api/menus' },
 	getArea: { method: 'get', url: '/district' },
 	getMerchant: { method: 'get', url: '/merchant' },
 	saveChain: { method: 'post', url: '/chain' },

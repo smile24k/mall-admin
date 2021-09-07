@@ -138,7 +138,7 @@ export default {
 		const saveActivity = async () => {
 			const [err, data = {}] = await to(api.saveActivity({ ...formData, chainId: chainInfo.id }));
 			if (err) return (loading.value = false);
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			proxy.$message.success('活动添加成功');
 			emit('saveSuccess');
 		};
@@ -150,7 +150,7 @@ export default {
 		const getShop = async () => {
 			const [err, data = {}] = await to(api.getShop({ chainId: chainInfo.id }));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			shopList.value = data.data;
 		};
 
@@ -158,7 +158,7 @@ export default {
 		const getPayList = async () => {
 			const [err, data = {}] = await to(api.getPayList());
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			payList.value = data.data;
 		};
 		const regionSelect = (e) => {

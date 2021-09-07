@@ -73,7 +73,7 @@ export default {
 		const getArea = async (code, cb) => {
 			const [err, data = {}] = await to(api.getArea({ parentAdcode: code }));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			cb && typeof cb === 'function' && cb(data.data);
 		};
 		onMounted(() => {
@@ -84,7 +84,7 @@ export default {
 		const getShop = async () => {
 			const [err, data = {}] = await to(api.getShop(pageData.value));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			let list = data.data || [];
 			shopList.value = list;
 		};

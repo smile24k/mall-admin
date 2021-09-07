@@ -77,7 +77,7 @@ export default {
 		const saveChain = async () => {
 			const [err, data = {}] = await to(api.saveChain(formData));
 			if (err) return (loading.value = false);
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			proxy.$message.success('品牌设置成功');
 			emit('setChainInfo', data.data);
 		};
@@ -88,7 +88,7 @@ export default {
 		const getCategory = async () => {
 			const [err, data = {}] = await to(api.getCategory());
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			categoryList.value = data.data;
 		};
 		const regionSelect = (e) => {

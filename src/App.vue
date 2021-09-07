@@ -36,7 +36,7 @@ export default {
 		const logout = async () => {
 			const [err, data = {}] = await to(api.logout());
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			router.replace('/login');
 		};
 		return {

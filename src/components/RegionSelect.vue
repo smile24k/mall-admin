@@ -48,7 +48,7 @@ export default {
 		const getArea = async (code, cb) => {
 			const [err, data = {}] = await to(api.getArea({ parentAdcode: code }));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			cb && typeof cb === 'function' && cb(data.data);
 		};
 		const cascaderRef = ref();

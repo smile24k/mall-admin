@@ -108,7 +108,7 @@ export default {
 		const saveShop = async () => {
 			const [err, data = {}] = await to(api.saveShop(formData));
 			if (err) return (loading.value = false);
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			proxy.$message.success('门店设置成功');
 			emit('saveSuccess');
 		};

@@ -39,8 +39,8 @@ export default defineComponent({
 			if (!getToken()) return;
 			const [err, data = {}] = await to(api.getMenu());
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
-			menus.value = data.data || [];
+			if (!data.success) return reqFail.call(proxy, data);
+			menus.value = data.result || [];
 		});
 		const defaultActive = computed(() => {
 			const { meta } = toRaw(route);

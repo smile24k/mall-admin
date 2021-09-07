@@ -94,7 +94,7 @@ export default {
 
 			const [err, data = {}] = await to(api.getShopInfo(postData));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			if (data.data.chainId) getChainInfo(data.data.chainId);
 			shopInfo.value = data.data;
 			cb && typeof cb === 'function' && cb(data.data);
@@ -103,7 +103,7 @@ export default {
 			let postData = { chainId, page: 0 };
 			const [err, data = {}] = await to(api.getShop(postData));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			let list = data.data || [];
 			shopList.value = list;
 			chainInfo.quantity = list.length;
@@ -111,7 +111,7 @@ export default {
 		const getChainInfo = async (id, type = 'init') => {
 			const [err, data = {}] = await to(api.getChainInfo({ id }));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			chainInfo = Object.assign(chainInfo, data.data);
 			if (type === 'init') getShop(data.data.id);
 		};

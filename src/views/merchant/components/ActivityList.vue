@@ -62,7 +62,7 @@ export default {
 		const getActivityList = async () => {
 			const [err, data = {}] = await to(api.getActivityList({ ...pageData.value, shopId: shopInfo.id }));
 			if (err) return;
-			if (data.status !== 200) return reqFail.call(proxy, data);
+			if (!data.success) return reqFail.call(proxy, data);
 			let list = data.data || [];
 			list.forEach((_l) => {
 				_l.startTime = formatDate(_l.startTime, 'yyyy-MM-dd HH:mm:ss');
