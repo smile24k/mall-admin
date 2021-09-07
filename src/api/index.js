@@ -14,7 +14,7 @@ function injectRequest(apiObj) {
 			const keyName = ['PUT', 'POST', 'PATCH'].includes(method) ? 'data' : 'params';
 			return request({
 				method,
-				url,
+				url: url || dataOrParams.url,
 				[keyName]: dataOrParams,
 				...Object.assign(config || {}, instanceConf),
 			});

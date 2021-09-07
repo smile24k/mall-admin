@@ -9,6 +9,7 @@ const Login = import('@view/Login.vue');
 const Merchant = import('@view/merchant/Index.vue');
 const MerchantInit = import('@view/merchant/MerchantInit.vue');
 const MerchantDetail = import('@view/merchant/MerchantDetail.vue');
+const Goods = import('@view/setting/Goods.vue');
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
@@ -43,6 +44,14 @@ const router = createRouter({
 			component: () => MerchantDetail,
 			meta: {
 				auth: '/merchant',
+			},
+		},
+		{
+			path: '/setting',
+			name: 'Goods',
+			component: () => Goods,
+			meta: {
+				auth: '/setting',
 			},
 		},
 		{
