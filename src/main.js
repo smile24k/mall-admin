@@ -2,6 +2,7 @@ import '@/style/base.less';
 import router from '@/router';
 import component from '@/components/index';
 import elementPlus from '@/plugins/element-plus/index';
+import 'element-plus/dist/index.css';
 import { ElMessage } from 'element-plus';
 
 import directive from '@util/directive';
