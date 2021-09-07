@@ -5,14 +5,13 @@ import handleError from '@/plugins/axios/axios.handleError.js';
 // import store from '@/store/index'
 // import router from '@/router/index.js'
 
-// import { Message } from 'element-ui';
+import { ElMessage } from 'element-plus';
 const showTip = (tip) => {
-	alert(tip || '请求出错啦');
-	/* Message({
+	ElMessage({
 		type: 'warning',
 		message: tip || '请求出错啦',
 		duration: 1500,
-	}); */
+	});
 };
 
 /**
@@ -83,6 +82,11 @@ const responseInterceptorId = request.interceptors.response.use(
 		}
 
 		showTip(err.message);
+		if (err.code == 401) {
+			localStorage.removeItem('token');
+			location.href = '/login';
+		}
+
 		return Promise.reject(err);
 	}
 );

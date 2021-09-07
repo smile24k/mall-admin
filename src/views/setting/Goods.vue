@@ -20,6 +20,7 @@
 				</el-table-column>
 			</template>
 		</MyTable>
+		<el-pagination :page-size="10" :pager-count="11" layout="prev, pager, next" :total="count" @current-change="currChange"> </el-pagination>
 
 		<el-dialog v-if="shopModalFlag" :title="currId ? '编辑' : '新增'" v-model="shopModalFlag" width="570px" :before-close="handleClose">
 			<AddOrUpdateGoods ref="addGoods" :goodsId="currId" @saveSuccess="(shopModalFlag = false), getGoods()"></AddOrUpdateGoods>
@@ -94,13 +95,15 @@ export default {
 			// getArea();
 			getGoods();
 		});
+		const count = ref(0);
 		const shopList = ref([]);
 		const getGoods = async () => {
 			const [err, data = {}] = await to(api.goods(pageData.value));
 			if (err) return;
 			if (!data.success) return reqFail.call(proxy, data);
-			let list = data.result || [];
+			let list = data.result.list || [];
 			shopList.value = list;
+			count.value = data.result.count || 0;
 		};
 		const jumpUrl = (url) => {
 			router.push(url);
@@ -114,6 +117,11 @@ export default {
 		};
 
 		const currId = ref();
+
+		const currChange = (e) => {
+			pageData.value.page = e;
+			getGoods();
+		};
 
 		return {
 			searchList,
@@ -130,6 +138,8 @@ export default {
 			submitShop,
 			currId,
 			getGoods,
+			currChange,
+			count,
 		};
 	},
 };
