@@ -1,6 +1,6 @@
 <template>
 	<div class="merchant page">
-		<PageSearch :searchData="{}" :searchList="searchList">
+		<!-- <PageSearch :searchData="{}" :searchList="searchList">
 			<template #searchItem>
 				<el-cascader placeholder="请选择行政区域" v-model="value" :props="areaProps" @change="handleChange" @expand-change="expandChange"></el-cascader>
 			</template>
@@ -19,7 +19,7 @@
 					<el-button type="text" size="default" @click="jumpUrl('/merchant/detail?id=' + row.id)">详情 </el-button>
 				</el-table-column>
 			</template>
-		</MyTable>
+		</MyTable> -->
 	</div>
 </template>
 
@@ -77,8 +77,8 @@ export default {
 			cb && typeof cb === 'function' && cb(data.data);
 		};
 		onMounted(() => {
-			getArea();
-			getShop();
+			// getArea();
+			// getShop();
 		});
 		const shopList = ref([]);
 		const getShop = async () => {

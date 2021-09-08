@@ -17,6 +17,7 @@
 			<template #action>
 				<el-table-column label="操作" width="120px" v-slot="{ row }">
 					<el-button type="text" size="default" @click="(currId = row._id), (shopModalFlag = true)">详情 </el-button>
+					<el-button type="text" size="default" @click="updateStatus(row)">{{ row.status === 1 ? '下架' : '上架' }} </el-button>
 				</el-table-column>
 			</template>
 		</MyTable>
@@ -123,6 +124,15 @@ export default {
 			getGoods();
 		};
 
+		const updateStatus = async (row) => {
+			row.status = row.status === 1 ? 0 : 1;
+			const [err, data = {}] = await to(api.updateGoods(row));
+			if (err) return (loading.value = false);
+			if (!data.success) return reqFail.call(proxy, data);
+			proxy.$message.success(row.status === 1 ? '上架成功' : '下架成功');
+			getGoods();
+		};
+
 		return {
 			searchList,
 			colConfigs,
@@ -140,6 +150,7 @@ export default {
 			getGoods,
 			currChange,
 			count,
+			updateStatus,
 		};
 	},
 };
