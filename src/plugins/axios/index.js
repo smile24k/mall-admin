@@ -10,7 +10,7 @@ const showTip = (tip) => {
 	ElMessage({
 		type: 'warning',
 		message: tip || '请求出错啦',
-		duration: 1500,
+		duration: 2500,
 	});
 };
 
