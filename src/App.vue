@@ -2,7 +2,7 @@
 	<Menu v-show="!routeMeta.fullScreen">
 		<template v-slot:actions>
 			<div class="menu-wrap-actions">
-				<el-button type="primary" plain round size="small" @click="logout">退 出</el-button>
+				<!-- <el-button type="primary" plain round size="small" @click="logout">退 出</el-button> -->
 			</div>
 		</template>
 	</Menu>

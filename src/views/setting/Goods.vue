@@ -5,7 +5,7 @@
 				<el-cascader placeholder="请选择行政区域" v-model="value" :props="areaProps" @change="handleChange" @expand-change="expandChange"></el-cascader>
 			</template>
 		</PageSearch> -->
-		<MyTable :data="shopList" stripe :colConfigs="colConfigs">
+		<MyTable :data="shopList" stripe :colConfigs="colConfigs" style="margin-top: 0">
 			<template #headerSlot>
 				<el-button round style="margin-left: auto" type="primary" @click="(currId = ''), (shopModalFlag = true)"> 新增商品</el-button>
 			</template>
@@ -38,7 +38,7 @@
 <script>
 import api from '@/api/index';
 import to from 'await-to-js';
-import { reqFail, initPageData, regionToText } from '@util/common';
+import { reqFail, initPageData, regionToText, formatDate } from '@util/common';
 import { onMounted, reactive, getCurrentInstance, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import AddOrUpdateGoods from './AddOrUpdateGoods.vue';
@@ -65,7 +65,14 @@ export default {
 			},
 		]);
 
-		const colConfigs = reactive([{ label: '排序', prop: 'sort' }, { label: '商品名称', prop: 'name' }, { label: '价格', prop: 'price' }, { label: '描述', prop: 'description' }, { slot: 'action' }]);
+		const colConfigs = reactive([
+			// { label: '排序', prop: 'sort' },
+			{ label: '商品名称', prop: 'name' },
+			{ label: '价格', prop: 'price' },
+			{ label: '描述', prop: 'description' },
+			{ label: '创建时间', prop: 'createTimeStr' },
+			{ slot: 'action' },
+		]);
 		const pageData = ref(initPageData());
 		const codes = ref([]); //区域查询code
 		const handleChange = (value) => {
@@ -103,6 +110,7 @@ export default {
 			if (err) return;
 			if (!data.success) return reqFail.call(proxy, data);
 			let list = data.result.list || [];
+			list.forEach((_l) => (_l.createTimeStr = formatDate(_l.createTime)));
 			shopList.value = list;
 			count.value = data.result.count || 0;
 		};
