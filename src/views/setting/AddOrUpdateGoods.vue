@@ -5,7 +5,7 @@
 				<el-input maxlength="15" v-model="formData.name"></el-input>
 			</el-form-item>
 			<el-form-item label="商品价格">
-				<el-input maxlength="15" v-model.number="formData.price"></el-input>
+				<el-input maxlength="15" v-model="formData.price"></el-input>
 			</el-form-item>
 			<el-form-item label="商品描述">
 				<el-input maxlength="200" type="textarea" v-model="formData.description"></el-input>
