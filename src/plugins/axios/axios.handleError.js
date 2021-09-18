@@ -46,6 +46,6 @@ export default (err) => {
 		default:
 			err.message = `连接出错，状态码：(${err.response.status})!`;
 	}
-	if (response.data && response.data.msg) err.message = response.data.msg;
+	// if (response.data && response.data.msg) err.message = response.data.msg;
 	return err;
 };

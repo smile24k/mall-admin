@@ -6,6 +6,7 @@ const apiMap = {
 	saveGoods: { method: 'post', url: '/api/goods/save' },
 	getGoodsById: { method: 'get' },
 	updateGoods: { method: 'post', url: '/api/goods/update' },
+	getImgs: { method: 'get', url: '/api/openapi/imgs' },
 
 	getArea: { method: 'get', url: '/district' },
 	getMerchant: { method: 'get', url: '/merchant' },
