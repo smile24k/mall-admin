@@ -83,7 +83,7 @@ export default {
 			img {
 				display: block;
 				min-width: 100%;
-				height: 200px;
+				height: 256px;
 				object-fit: cover;
 			}
 		}
