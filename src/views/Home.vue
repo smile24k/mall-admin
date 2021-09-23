@@ -1,7 +1,7 @@
 <template>
 	<div class="home page">
 		<div class="home-data">
-			<div class="waterfall-width-column">
+			<div class="img-wrap">
 				<div class="image-box" v-for="img in imgs" :key="img">
 					<img v-lazy="img.webformatURL" alt="" />
 				</div>
@@ -19,7 +19,7 @@ export default {
 	setup() {
 		const { proxy } = getCurrentInstance();
 		const datas = reactive([]);
-		const pageData = ref(initPageData(30));
+		const pageData = ref(initPageData(50));
 		let imgs = ref([]);
 		let loading = ref(false);
 		const getImgs = async () => {
@@ -66,9 +66,10 @@ export default {
 <style lang="less" scoped>
 .home {
 	height: 100%;
+
 	&-data {
-		.waterfall-width-column {
-			column-count: 3;
+		.img-wrap {
+			column-count: 2;
 			column-gap: 10px;
 			.image-box {
 				margin-bottom: 10px;
@@ -76,6 +77,21 @@ export default {
 					display: block;
 					width: 100%;
 				}
+			}
+		}
+		@media screen and (min-width: 768px) {
+			.img-wrap {
+				column-count: 2;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			.img-wrap {
+				column-count: 4;
+			}
+		}
+		@media screen and (min-width: 1200px) {
+			.img-wrap {
+				column-count: 6;
 			}
 		}
 	}
