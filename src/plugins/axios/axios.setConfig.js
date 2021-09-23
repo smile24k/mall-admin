@@ -7,7 +7,7 @@ import { getToken } from '@util/common';
 export default (axios, config = {}) => {
 	const defaultConfig = {
 		baseURL: import.meta.env.VITE_APP_URL,
-		timeout: 10000,
+		timeout: 60000,
 		headers: {
 			'Content-Type': 'application/json;charset=UTF-8',
 			'custom-defined-header-key': 'custom-defined-header-value',

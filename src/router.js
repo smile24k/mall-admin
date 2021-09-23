@@ -88,10 +88,10 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	let loginRes = getLoginRes();
 	let doLogin = to.name == 'Login' || from.name == 'Login';
-	if (!doLogin && !loginRes) {
-		next('/login');
-		return;
-	}
+	// if (!doLogin && !loginRes) {
+	// 	next('/login');
+	// 	return;
+	// }
 	// if (to.meta.keepAlive) {
 	// 	store.commit('keepAlive', to.name);
 	// }

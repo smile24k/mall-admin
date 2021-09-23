@@ -84,7 +84,7 @@ const responseInterceptorId = request.interceptors.response.use(
 		showTip(err.message);
 		if (err.code == 401) {
 			localStorage.removeItem('token');
-			location.href = '/login';
+			// location.href = '/login';
 		}
 
 		return Promise.reject(err);

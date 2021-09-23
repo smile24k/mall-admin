@@ -15,7 +15,7 @@ function checkAuth(code) {
 	if (code === 403 && location.pathname !== '/login') {
 		localStorage.removeItem('loginRes');
 		localStorage.removeItem('token');
-		location.href = '/';
+		// location.href = '/';
 	}
 }
 

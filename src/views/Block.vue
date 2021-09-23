@@ -1,8 +1,6 @@
 <template>
 	<div class="block">
 		<Home />
-
-		block build
 	</div>
 </template>
 <script>

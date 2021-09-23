@@ -55,7 +55,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		// base: './',
 		optimizeDeps: {
-			include: ['lodash', 'dayjs'],
+			include: ['lodash', 'dayjs', 'vue3-lazyload'],
 		},
 	};
 });

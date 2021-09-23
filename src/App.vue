@@ -31,13 +31,13 @@ export default {
 			routeMeta.value = route.meta || {};
 		});
 		onMounted(() => {
-			if (!getToken()) router.replace('/login');
+			// if (!getToken()) router.replace('/login');
 		});
 		const logout = async () => {
 			const [err, data = {}] = await to(api.logout());
 			if (err) return;
 			if (data.status !== 200) return reqFail.call(proxy, data);
-			router.replace('/login');
+			// router.replace('/login');
 		};
 		return {
 			logout,
