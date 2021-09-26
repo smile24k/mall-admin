@@ -69,22 +69,32 @@ export default {
 
 	&-data {
 		.img-wrap {
-			display: flex;
-			flex-wrap: wrap;
-			&:after {
-				content: '';
-				display: block;
-				flex-grow: 99999;
-			}
+			column-count: 2;
+			column-gap: 10px;
+
 			.image-box {
-				flex-grow: 1;
-				margin: 4px;
+				margin-bottom: 10px;
+				break-inside: avoid;
+				counter-increment: item-counter;
+				img {
+					display: block;
+					width: 100%;
+				}
 			}
-			img {
-				display: block;
-				min-width: 100%;
-				height: 256px;
-				object-fit: cover;
+		}
+		@media screen and (min-width: 768px) {
+			.img-wrap {
+				column-count: 2;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			.img-wrap {
+				column-count: 4;
+			}
+		}
+		@media screen and (min-width: 1200px) {
+			.img-wrap {
+				column-count: 6;
 			}
 		}
 	}
