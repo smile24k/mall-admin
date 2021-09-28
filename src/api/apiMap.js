@@ -1,12 +1,12 @@
 const apiMap = {
-	login: { method: 'post', url: '/api/login' },
+	login: { method: 'post', url: '/login' },
 	logout: { method: 'post', url: '/logout' },
-	getMenu: { method: 'get', url: '/api/menus' },
-	goods: { method: 'get', url: '/api/goods' },
-	saveGoods: { method: 'post', url: '/api/goods/save' },
+	getMenu: { method: 'get', url: '/menus' },
+	goods: { method: 'get', url: '/goods' },
+	saveGoods: { method: 'post', url: '/goods/save' },
 	getGoodsById: { method: 'get' },
-	updateGoods: { method: 'post', url: '/api/goods/update' },
-	getImgs: { method: 'get', url: '/api/openapi/imgs' },
+	updateGoods: { method: 'post', url: '/goods/update' },
+	getImgs: { method: 'get', url: '/openapi/imgs' },
 
 	getArea: { method: 'get', url: '/district' },
 	getMerchant: { method: 'get', url: '/merchant' },
